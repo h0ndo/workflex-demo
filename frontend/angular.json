@@ -73,6 +73,110 @@
           "builder": "@angular/build:unit-test"
         }
       }
+    },
+    "business-lib": {
+      "projectType": "library",
+      "root": "src/libs/business-lib",
+      "sourceRoot": "src/libs/business-lib/src",
+      "prefix": "wf",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:library",
+          "options": {
+            "tsConfig": "src/libs/business-lib/tsconfig.lib.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "src/libs/business-lib/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "src/libs/business-lib/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "core-lib": {
+      "projectType": "library",
+      "root": "src/libs/core-lib",
+      "sourceRoot": "src/libs/core-lib/src",
+      "prefix": "wf",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:library",
+          "options": {
+            "tsConfig": "src/libs/core-lib/tsconfig.lib.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "src/libs/core-lib/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "src/libs/core-lib/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "provider-lib": {
+      "projectType": "library",
+      "root": "src/libs/provider-lib",
+      "sourceRoot": "src/libs/provider-lib/src",
+      "prefix": "wf",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:library",
+          "options": {
+            "tsConfig": "src/libs/provider-lib/tsconfig.lib.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "src/libs/provider-lib/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "src/libs/provider-lib/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "style-lib": {
+      "projectType": "library",
+      "root": "src/libs/style-lib",
+      "sourceRoot": "src/libs/style-lib/src",
+      "prefix": "wf",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:library",
+          "options": {
+            "tsConfig": "src/libs/style-lib/tsconfig.lib.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "src/libs/style-lib/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "src/libs/style-lib/tsconfig.spec.json"
+          }
+        }
+      }
     }
   }
 }

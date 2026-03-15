@@ -6,7 +6,9 @@
     "baseUrl": "./",
     "paths": {
       "@business-lib/*": ["src/libs/business-lib/*"],
-      "@core-lib/*": ["src/libs/core-lib/*"]
+      "@core-lib/*": ["src/libs/core-lib/*"],
+      "@provider-lib/*": ["src/libs/provider-lib/*"],
+      "@style-lib/*": ["src/libs/style-lib/*"]
     },
     "strict": true,
     "noImplicitAny": true,

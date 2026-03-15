@@ -39,6 +39,27 @@ Diese Regeln sind verbindlich für die Frontend-Architektur.
   - weitere app-weite Kernbausteine
 - Auch hier: erst fachlich, dann technisch strukturieren.
 
+### 2.3 provider-lib
+- Enthält Integrationsschicht zum Backend.
+- Strukturregel (verbindlich):
+  - 1. Ordnerschicht fachlich (z. B. `backend-api`, `billing-api`, ...)
+  - 2. Ordnerschicht **nur** technisch: `services/` und `models/`
+- Enthält insbesondere:
+  - API-Services
+  - API-Models/Contracts
+- Zugriffsbeschränkung:
+  - Erlaubt in `business-lib` und `core-lib`
+  - **Verboten** in `app` (keine direkten Provider-Aufrufe aus app/pages)
+
+### 2.4 style-lib
+- Enthält globale Styling-Bausteine und zentrale Style-Ressourcen.
+- Typische Inhalte:
+  - Variablen/Tokens
+  - Utility-Klassen
+  - Overrides für Drittanbieter-Styles
+- Zugriff:
+  - Erlaubt in `app` und `business-lib`
+  - Per Alias konsumieren.
 ---
 
 ## 3) Alias-Regeln
@@ -47,7 +68,10 @@ Diese Regeln sind verbindlich für die Frontend-Architektur.
 2. Erlaubte Aliases:
    - `@business-lib/*`
    - `@core-lib/*`
+   - `@provider-lib/*`
+   - `@style-lib/*`
 3. Relative Deep-Imports über viele Ebenen vermeiden.
+4. Architekturgrenze: `app` darf nichts aus `@provider-lib/*` importieren.
 
 ---
 
@@ -74,6 +98,15 @@ frontend/src
               ├─ directives/
               ├─ pipes/
               └─ components/
+      ├─ provider-lib/
+      │   └─ <provider-domain>/
+      │       ├─ <provider-domain>.module.ts
+      │       ├─ services/
+      │       └─ models/
+      └─ style-lib/
+          ├─ _variables.scss
+          ├─ _utilities.scss
+          └─ vendor-overrides.scss
 ```
 
 ---
@@ -84,5 +117,6 @@ Eine Änderung ist nur fertig, wenn:
 1. Seitenlogik in `app`, wiederverwendbare Logik in den Libs liegt.
 2. In Libs die Reihenfolge fachlich -> technisch eingehalten ist.
 3. Alias-Imports genutzt werden.
-4. Module-basiertes Arbeiten eingehalten ist.
-5. Keine Barrel Files eingeführt wurden.
+4. `app` keine direkten Importe aus `@provider-lib/*` enthält.
+5. Module-basiertes Arbeiten eingehalten ist.
+6. Keine Barrel Files eingeführt wurden.
