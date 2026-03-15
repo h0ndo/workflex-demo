@@ -1,0 +1,2 @@
+-- Initial baseline migration for Workflex.
+-- Add tables incrementally in next versions (V2__, V3__, ...).
