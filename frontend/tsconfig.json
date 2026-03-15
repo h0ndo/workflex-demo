@@ -3,11 +3,22 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@business-lib/*": ["src/libs/business-lib/*"],
+      "@core-lib/*": ["src/libs/core-lib/*"]
+    },
     "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "exactOptionalPropertyTypes": true,
+    "noUncheckedIndexedAccess": true,
+    "useUnknownInCatchVariables": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
+    "noEmitOnError": true,
     "skipLibCheck": true,
     "isolatedModules": true,
     "experimentalDecorators": true,
