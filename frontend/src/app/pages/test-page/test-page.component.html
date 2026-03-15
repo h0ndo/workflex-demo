@@ -1,0 +1,12 @@
+<section class="test-page">
+  <h1>Test Page</h1>
+  <p>Data comes from backend API + PostgreSQL.</p>
+
+  <ul>
+    <li *ngFor="let item of items$ | async">
+      <strong>#{{ item.id }}</strong>
+      <span>{{ item.label }}</span>
+      <small>{{ item.createdAt | date: 'short' }}</small>
+    </li>
+  </ul>
+</section>

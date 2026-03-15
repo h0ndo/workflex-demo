@@ -1,0 +1,15 @@
+.test-page {
+  padding: 1rem;
+
+  ul {
+    margin-top: 1rem;
+    padding-left: 1rem;
+  }
+
+  li {
+    display: flex;
+    gap: 0.75rem;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+  }
+}
