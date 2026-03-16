@@ -19,6 +19,43 @@
         "kind": "build",
         "isDefault": true
       }
+    },
+    {
+      "label": "Workflex: Backend (Spring Boot)",
+      "type": "shell",
+      "command": ".\\mvnw spring-boot:run",
+      "options": {
+        "cwd": "${workspaceFolder}/backend"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "group": "workflex-run"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Workflex: Frontend (Angular)",
+      "type": "shell",
+      "command": "npm run start -- --host 0.0.0.0",
+      "options": {
+        "cwd": "${workspaceFolder}/frontend"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "group": "workflex-run"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Workflex: Start Backend + Frontend",
+      "dependsOn": [
+        "Workflex: Backend (Spring Boot)",
+        "Workflex: Frontend (Angular)"
+      ],
+      "dependsOrder": "parallel",
+      "problemMatcher": []
     }
   ]
 }
