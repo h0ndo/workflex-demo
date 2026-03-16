@@ -80,25 +80,25 @@ jobs:
           cat frontend.log || true
           exit 1
 
-      - name: Run E2E tests
+      - name: Run E2E tests (Gherkin)
         working-directory: e2e-tests
         env:
           E2E_BASE_URL: http://localhost:4200
-        run: npm test
+        run: npm run test:gherkin
 
-      - name: Upload Playwright report
+      - name: Upload Cucumber report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: playwright-report
-          path: e2e-tests/playwright-report
+          name: cucumber-report
+          path: e2e-tests/reports
           if-no-files-found: warn
 
-      - name: Upload Playwright results
+      - name: Upload E2E screenshots
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: playwright-results
+          name: e2e-test-results
           path: e2e-tests/test-results
           if-no-files-found: warn
 

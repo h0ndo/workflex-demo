@@ -4,4 +4,5 @@
 2. E2E focuses on money paths and complete use-case chains.
 3. Keep E2E scope small; move all possible checks to unit tests.
 4. Permission/configuration checks are primarily unit tests.
-5. Keep Playwright artifacts for failures.
+5. Keep Playwright/Cucumber artifacts for failures.
+6. Follow `E2E_GHERKIN_RULES.md` when scenarios are written in Gherkin.

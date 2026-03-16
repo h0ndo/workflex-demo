@@ -3,13 +3,15 @@
   "private": true,
   "version": "0.0.1",
   "scripts": {
-    "test": "npx playwright test",
-    "test:headed": "npx playwright test --headed",
-    "test:ui": "npx playwright test --ui",
+    "test": "npm run test:gherkin",
+    "test:gherkin": "cucumber-js --config cucumber.js",
+    "test:pw": "npx playwright test",
     "install:browsers": "npx playwright install --with-deps chromium"
   },
   "devDependencies": {
+    "@cucumber/cucumber": "^11.3.0",
     "@playwright/test": "^1.55.0",
+    "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
   }
 }
