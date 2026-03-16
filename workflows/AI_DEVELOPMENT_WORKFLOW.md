@@ -1,6 +1,6 @@
-# Dry Run Orchestration Workflow
+# AI Development Workflow
 
-Use this workflow to simulate end-to-end delivery before implementation. The goal is to make planning, ownership, and test strategy explicit across all agents.
+Use this workflow to orchestrate end-to-end AI-assisted delivery. The goal is to make planning, ownership, implementation, and test strategy explicit across all agents.
 
 ## 1) Intake and Scope
 
@@ -88,7 +88,7 @@ Use this order for execution unless explicitly overridden:
 9. CI/CD verification and pipeline stabilization
 10. Documentation updates and final readiness check
 
-## Optional Output Template for Dry Runs
+## Optional Output Template for AI Development Planning
 
 For each incoming request, provide:
 
