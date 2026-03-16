@@ -5,10 +5,10 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@business-lib/*": ["src/libs/business-lib/*"],
-      "@core-lib/*": ["src/libs/core-lib/*"],
-      "@provider-lib/*": ["src/libs/provider-lib/*"],
-      "@style-lib/*": ["src/libs/style-lib/*"]
+      "@business-lib/*": ["src/libs/business-lib/src/*"],
+      "@core-lib/*": ["src/libs/core-lib/src/*"],
+      "@provider-lib/*": ["src/libs/provider-lib/src/*"],
+      "@style-lib/*": ["src/libs/style-lib/src/*"]
     },
     "strict": true,
     "noImplicitAny": true,
