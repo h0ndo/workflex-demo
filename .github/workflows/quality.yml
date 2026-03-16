@@ -9,6 +9,20 @@ jobs:
   backend-quality:
     name: Backend - Test
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: workflex_user
+          POSTGRES_PASSWORD: workflex_secret
+          POSTGRES_DB: workflex_db
+        ports:
+          - 5433:5432
+        options: >-
+          --health-cmd "pg_isready -U workflex_user -d workflex_db"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 10
 
     steps:
       - name: Checkout
@@ -24,8 +38,24 @@ jobs:
       - name: Make Maven wrapper executable
         run: chmod +x backend/mvnw
 
+      - name: Wait for Postgres readiness
+        run: |
+          for i in {1..60}; do
+            if pg_isready -h localhost -p 5433 -U workflex_user -d workflex_db; then
+              echo "Postgres is up"
+              exit 0
+            fi
+            sleep 2
+          done
+          echo "Postgres did not become ready"
+          exit 1
+
       - name: Run backend tests
         working-directory: backend
+        env:
+          DB_URL: jdbc:postgresql://localhost:5433/workflex_db
+          DB_USER: workflex_user
+          DB_PASSWORD: workflex_secret
         run: ./mvnw -q test
 
   frontend-quality:
