@@ -1,10 +1,10 @@
-# Acceptance Workflow
+# Definition of Done Workflow
 
-Use this workflow for controlled delivery. No commit or push is allowed before local verification is complete and the requester explicitly approves acceptance.
+Use this workflow for controlled delivery. No commit or push is allowed before local verification is complete and the requester explicitly confirms the Definition of Done.
 
 ## Core Rule
 
-Do **not** commit and do **not** push until all acceptance gates pass and the requester confirms approval.
+Do **not** commit and do **not** push until all Definition of Done gates pass and the requester confirms approval.
 
 ## 1) Implementation Phase (Local Only)
 
@@ -55,13 +55,13 @@ If any gate fails:
 - Re-run relevant checks
 - Re-present updated change inventory if scope changed
 
-## 6) Acceptance Confirmation
+## 6) Definition of Done Confirmation
 
 Only proceed when requester explicitly confirms acceptance.
 
 Required confirmation statement (or equivalent explicit approval):
 
-- "Acceptance approved. You may commit and push."
+- "Definition of Done approved. You may commit and push."
 
 Without explicit confirmation, remain in local-only mode.
 
