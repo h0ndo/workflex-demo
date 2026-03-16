@@ -51,6 +51,9 @@ Use this workflow to orchestrate end-to-end delivery. The goal is to make planni
 - Only include fully completed feature flows.
 - Focus on money paths and full use-case chains.
 - Use Gherkin scenarios with exactly one `Then` per scenario.
+- Use domain-first E2E structure with technical subfolders (`features`, `steps`, `page-objects`, `providers`, `fixtures`).
+- Use E2E providers for API-based setup/cleanup where helpful.
+- Ensure each create/setup path has a matching cleanup/delete path.
 - Map planned E2E scenarios to completed scope entries before execution.
 
 ## 8) CI/CD Impact Review (devops-agent)

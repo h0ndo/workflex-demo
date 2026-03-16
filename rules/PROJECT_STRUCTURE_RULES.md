@@ -12,6 +12,12 @@
 - `frontend/`
 - `.github/workflows/`
 
+## Structural Conventions
+
+- Use domain-first first-layer folders.
+- Put technical subfolders inside each domain folder.
+- Apply this convention consistently in backend, frontend libraries, and E2E tests.
+
 ## Language Policy
 
 - Chat language can be German.
