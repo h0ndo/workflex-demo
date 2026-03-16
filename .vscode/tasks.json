@@ -65,7 +65,7 @@
     {
       "label": "Backend",
       "type": "shell",
-      "command": "docker compose -f ../docker-compose.yml up -d postgres; for i in {1..60}; do pg_isready -h localhost -p 5433 -U workflex_user -d workflex_db && break; sleep 2; done; JAVA_HOME_RAW=\"$(java -XshowSettings:properties -version 2>&1 | sed -n 's/^[[:space:]]*java.home = //p' | tail -n1)\"; export JAVA_HOME=\"$(cygpath -u \"$JAVA_HOME_RAW\")\"; export PATH=\"$JAVA_HOME/bin:$PATH\"; if ./mvnw -v | grep -Eq 'Java version: (17|18|19|2[0-9])'; then ./mvnw spring-boot:run; else echo 'ERROR: Maven is not using Java 17+ (recommended: 21).'; echo \"JAVA_HOME=$JAVA_HOME\"; ./mvnw -v; exit 1; fi",
+      "command": "docker info >/dev/null 2>&1 || { echo 'ERROR: Docker Desktop is not running. Start Docker Desktop first.'; exit 1; }; docker compose -f ../docker-compose.yml up -d postgres; for i in {1..60}; do docker compose -f ../docker-compose.yml exec -T postgres pg_isready -U workflex_user -d workflex_db >/dev/null 2>&1 && break; sleep 2; done; JAVA_HOME_RAW=\"$(java -XshowSettings:properties -version 2>&1 | sed -n 's/^[[:space:]]*java.home = //p' | tail -n1)\"; export JAVA_HOME=\"$(cygpath -u \"$JAVA_HOME_RAW\")\"; export PATH=\"$JAVA_HOME/bin:$PATH\"; if ./mvnw -v | grep -Eq 'Java version: (17|18|19|2[0-9])'; then ./mvnw spring-boot:run; else echo 'ERROR: Maven is not using Java 17+ (recommended: 21).'; echo \"JAVA_HOME=$JAVA_HOME\"; ./mvnw -v; exit 1; fi",
       "options": {
         "cwd": "${workspaceFolder}/backend"
       },
@@ -107,7 +107,7 @@
     {
       "label": "BE Unit",
       "type": "shell",
-      "command": "docker compose -f ../docker-compose.yml up -d postgres; for i in {1..60}; do pg_isready -h localhost -p 5433 -U workflex_user -d workflex_db && break; sleep 2; done; JAVA_HOME_RAW=\"$(java -XshowSettings:properties -version 2>&1 | sed -n 's/^[[:space:]]*java.home = //p' | tail -n1)\"; export JAVA_HOME=\"$(cygpath -u \"$JAVA_HOME_RAW\")\"; export PATH=\"$JAVA_HOME/bin:$PATH\"; if ./mvnw -v | grep -Eq 'Java version: (17|18|19|2[0-9])'; then ./mvnw test; else echo 'ERROR: Maven is not using Java 17+ (recommended: 21).'; echo \"JAVA_HOME=$JAVA_HOME\"; ./mvnw -v; exit 1; fi",
+      "command": "docker info >/dev/null 2>&1 || { echo 'ERROR: Docker Desktop is not running. Start Docker Desktop first.'; exit 1; }; docker compose -f ../docker-compose.yml up -d postgres; for i in {1..60}; do docker compose -f ../docker-compose.yml exec -T postgres pg_isready -U workflex_user -d workflex_db >/dev/null 2>&1 && break; sleep 2; done; JAVA_HOME_RAW=\"$(java -XshowSettings:properties -version 2>&1 | sed -n 's/^[[:space:]]*java.home = //p' | tail -n1)\"; export JAVA_HOME=\"$(cygpath -u \"$JAVA_HOME_RAW\")\"; export PATH=\"$JAVA_HOME/bin:$PATH\"; if ./mvnw -v | grep -Eq 'Java version: (17|18|19|2[0-9])'; then ./mvnw test; else echo 'ERROR: Maven is not using Java 17+ (recommended: 21).'; echo \"JAVA_HOME=$JAVA_HOME\"; ./mvnw -v; exit 1; fi",
       "options": {
         "cwd": "${workspaceFolder}/backend"
       },
