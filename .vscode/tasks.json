@@ -65,7 +65,7 @@
     {
       "label": "Backend",
       "type": "shell",
-      "command": "./mvnw spring-boot:run",
+      "command": "if java -version 2>&1 | grep -Eq 'version \"(1[7-9]|[2-9][0-9])|openjdk (1[7-9]|[2-9][0-9])'; then ./mvnw spring-boot:run; else echo 'ERROR: Java 17+ is required. Please set JAVA_HOME to JDK 21 and restart VS Code.'; java -version; exit 1; fi"
       "options": {
         "cwd": "${workspaceFolder}/backend"
       },
@@ -107,7 +107,7 @@
     {
       "label": "BE Unit",
       "type": "shell",
-      "command": "./mvnw test",
+      "command": "if java -version 2>&1 | grep -Eq 'version \"(1[7-9]|[2-9][0-9])|openjdk (1[7-9]|[2-9][0-9])'; then ./mvnw test; else echo 'ERROR: Java 17+ is required. Please set JAVA_HOME to JDK 21 and restart VS Code.'; java -version; exit 1; fi"
       "options": {
         "cwd": "${workspaceFolder}/backend"
       },
