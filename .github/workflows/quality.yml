@@ -95,4 +95,4 @@ jobs:
 
       - name: Unit tests (headless)
         working-directory: frontend
-        run: npm run test -- --run --watch=false
+        run: npx ng test frontend --watch=false
