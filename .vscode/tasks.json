@@ -91,6 +91,48 @@
       "problemMatcher": []
     },
     {
+      "label": "FE Unit",
+      "type": "shell",
+      "command": "npm test -- --watch=false",
+      "options": {
+        "cwd": "${workspaceFolder}/frontend"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "group": "workflex-test"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "BE Unit",
+      "type": "shell",
+      "command": ".\\mvnw test",
+      "options": {
+        "cwd": "${workspaceFolder}/backend"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "group": "workflex-test"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "E2E",
+      "type": "shell",
+      "command": "npm test",
+      "options": {
+        "cwd": "${workspaceFolder}/e2e-tests"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "group": "workflex-test"
+      },
+      "problemMatcher": []
+    },
+    {
       "label": "Start App",
       "dependsOn": [
         "Backend",
