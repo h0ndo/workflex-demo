@@ -2,6 +2,8 @@
 
 Use this workflow to convert every fix into a permanent process improvement.
 
+Primary objective: prevent and reduce the recurrence of known errors over time.
+
 ## Core Principle
 
 Every correction must produce at least one durable improvement in project guidance.
