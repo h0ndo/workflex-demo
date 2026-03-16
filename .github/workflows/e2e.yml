@@ -46,6 +46,22 @@ jobs:
         working-directory: e2e-tests
         run: npm run install:browsers
 
+      - name: Start Postgres (Docker Compose)
+        run: docker compose up -d postgres
+
+      - name: Wait for Postgres readiness
+        run: |
+          for i in {1..90}; do
+            if docker compose exec -T postgres pg_isready -U workflex_user -d workflex_db; then
+              echo "Postgres is up"
+              exit 0
+            fi
+            sleep 2
+          done
+          echo "Postgres did not become ready"
+          docker compose logs postgres || true
+          exit 1
+
       - name: Start backend
         working-directory: backend
         run: ./mvnw spring-boot:run > ../backend.log 2>&1 &
@@ -102,6 +118,18 @@ jobs:
           path: e2e-tests/test-results
           if-no-files-found: warn
 
+      - name: Save Postgres logs
+        if: failure()
+        run: docker compose logs postgres > postgres.log
+
+      - name: Upload Postgres log
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: postgres-log
+          path: postgres.log
+          if-no-files-found: warn
+
       - name: Upload backend log
         if: failure()
         uses: actions/upload-artifact@v4
@@ -117,3 +145,7 @@ jobs:
           name: frontend-log
           path: frontend.log
           if-no-files-found: warn
+
+      - name: Stop Docker Compose services
+        if: always()
+        run: docker compose down -v
