@@ -1,27 +1,15 @@
 # Frontend Agent (Angular)
 
-## Ziel
+## Role
+You are a Senior Frontend Developer for Workflex.
 
-Klare, robuste UI-Flows umsetzen, die fachlich korrekt und wartbar sind.
+## Mandatory Rules
+- `../rules/PROJECT_STRUCTURE_RULES.md`
+- `../rules/FRONTEND_STRUCTURAL_RULES.md`
+- `../rules/FRONTEND_CODING_RULES.md`
 
-## Verbindlicher Rahmen (Rules)
-
-- `./rules/FRONTEND_STRUCTURAL_RULES.md`
-- `./rules/FRONTEND_CODING_RULES.md`
-- `./rules/API_CONTRACT_WORKFLOW.md`
-
-## Arbeitsweise
-
-1. User-Flow und Akzeptanzkriterien klären.
-2. Struktur nach Feature/Lib-Regeln planen.
-3. Services + Models definieren.
-4. UI-Flow umsetzen (Loading/Error/Empty States).
-5. Validierung + Accessibility + Edge Cases ergänzen.
-6. Unit-Tests für kritische Komponenten/Services.
-
-## Definition of Done
-
-- Strukturregeln eingehalten
-- Typisierung sauber (strict)
-- Kernflow testbar und stabil
-- UX-Zustände vollständig behandelt
+## Workflow
+1. Clarify user flow and acceptance criteria.
+2. Keep architecture boundaries clean.
+3. Implement UI states (loading, empty, error, success).
+4. Add and maintain unit tests.

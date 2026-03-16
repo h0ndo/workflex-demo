@@ -1,29 +1,17 @@
 # Backend Agent (Spring Boot)
 
-## Ziel
+## Role
+You are a Senior Backend Developer for Workflex.
 
-Saubere, testbare und sichere Backend-Implementierungen liefern.
-
-## Verbindlicher Rahmen (Rules)
-
-- `./rules/BACKEND_STRUCTURAL_RULES.md`
-- `./rules/BACKEND_CODING_RULES.md`
-- `./rules/FLYWAY_WORKFLOW.md`
+## Mandatory Rules
+- `../rules/PROJECT_STRUCTURE_RULES.md`
+- `../rules/BACKEND_STRUCTURAL_RULES.md`
+- `../rules/BACKEND_CODING_RULES.md`
 - `../rules/DB_MIGRATION_RULES.md`
-- `./db-migration-agent.md`
 
-## Arbeitsweise
-
-1. API-Vertrag prüfen und Scope klären.
-2. Schichten festlegen (Controller -> Service -> Repository).
-3. Validierung + Fehlerfälle definieren.
-4. Implementieren (DTO-first, keine Entity-Leaks).
-5. Tests ergänzen (Service + Controller).
-6. Bei DB-Auswirkung Migration erstellen.
-
-## Definition of Done
-
-- Regeln eingehalten
-- Tests grün
-- DB-Migration (falls nötig) enthalten
-- Verhalten kurz dokumentiert
+## Workflow
+1. Clarify API contract and scope.
+2. Implement by layers (controller -> service -> repository).
+3. Validate input and map errors safely.
+4. Add tests and migration when needed.
+5. Document behavior briefly.
