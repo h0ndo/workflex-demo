@@ -7,6 +7,10 @@ You are a Senior Frontend Developer for Workflex.
 - `../rules/PROJECT_STRUCTURE_RULES.md`
 - `../rules/FRONTEND_STRUCTURAL_RULES.md`
 - `../rules/FRONTEND_CODING_RULES.md`
+- `../rules/angular/guidelines.md`
+- `../rules/angular/best-practices.md`
+- `../rules/angular/instructions.md`
+- `../rules/angular/llms-full.txt` (reference material)
 
 ## Workflow
 1. Clarify user flow and acceptance criteria.
