@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { TestItemViewModel } from '@business-lib/test/models/test-item.view-model';
@@ -13,9 +13,6 @@ import { TestPageDataService } from '@business-lib/test/services/test-page-data.
   styleUrl: './test-page.component.scss',
 })
 export class TestPageComponent {
-  readonly items$: Observable<TestItemViewModel[]>;
-
-  constructor(private readonly dataService: TestPageDataService) {
-    this.items$ = this.dataService.getItems$();
-  }
+  private readonly dataService = inject(TestPageDataService);
+  readonly items$: Observable<TestItemViewModel[]> = this.dataService.getItems$();
 }

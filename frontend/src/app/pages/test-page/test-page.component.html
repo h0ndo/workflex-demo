@@ -3,10 +3,12 @@
   <p>Data comes from backend API + PostgreSQL.</p>
 
   <ul>
-    <li *ngFor="let item of items$ | async">
-      <strong>#{{ item.id }}</strong>
-      <span>{{ item.label }}</span>
-      <small>{{ item.createdAt | date: 'short' }}</small>
-    </li>
+    @for (item of (items$ | async) ?? []; track item.id) {
+      <li>
+        <strong>#{{ item.id }}</strong>
+        <span>{{ item.label }}</span>
+        <small>{{ item.createdAt | date: 'short' }}</small>
+      </li>
+    }
   </ul>
 </section>

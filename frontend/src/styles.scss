@@ -3,19 +3,20 @@
 @use 'libs/style-lib/src/variables';
 @use 'libs/style-lib/src/utilities';
 @use 'libs/style-lib/src/vendor-overrides';
+@include mat.core;
 
-@include mat.core();
-
-$theme: mat.define-theme((
-  color: (
-    theme-type: light,
-    primary: mat.$azure-palette,
-    tertiary: mat.$blue-palette,
-  ),
-  typography: (
-    brand-family: 'Inter, Roboto, Arial, sans-serif',
+$theme: mat.define-theme(
+  (
+    color: (
+      theme-type: light,
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
+    ),
+    typography: (
+      brand-family: 'Inter, Roboto, Arial, sans-serif',
+    ),
   )
-));
+);
 
 :root {
   @include mat.all-component-themes($theme);

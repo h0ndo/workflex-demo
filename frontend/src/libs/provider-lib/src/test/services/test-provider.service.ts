@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { TestItemApiModel } from '../models/test-item.api-model';
@@ -8,7 +8,7 @@ import { TestItemApiModel } from '../models/test-item.api-model';
 export class TestProviderService {
   private readonly baseUrl = 'http://localhost:8080/api/tests';
 
-  constructor(private readonly http: HttpClient) {}
+  private readonly http = inject(HttpClient);
 
   getItems$(): Observable<TestItemApiModel[]> {
     return this.http.get<TestItemApiModel[]>(this.baseUrl);
