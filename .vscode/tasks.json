@@ -65,7 +65,7 @@
     {
       "label": "Backend",
       "type": "shell",
-      "command": "export JAVA_HOME=\"$(dirname \"$(dirname \"$(readlink -f \"$(command -v java)\")\")\")\"; if ./mvnw -v | grep -Eq 'Java version: (17|18|19|2[0-9])'; then ./mvnw spring-boot:run; else echo 'ERROR: Maven is not using Java 17+ (recommended: 21).'; ./mvnw -v; exit 1; fi",
+      "command": "JAVA_HOME_RAW=\"$(java -XshowSettings:properties -version 2>&1 | sed -n 's/^[[:space:]]*java.home = //p' | tail -n1)\"; export JAVA_HOME=\"$(cygpath -u \"$JAVA_HOME_RAW\")\"; export PATH=\"$JAVA_HOME/bin:$PATH\"; if ./mvnw -v | grep -Eq 'Java version: (17|18|19|2[0-9])'; then ./mvnw spring-boot:run; else echo 'ERROR: Maven is not using Java 17+ (recommended: 21).'; echo \"JAVA_HOME=$JAVA_HOME\"; ./mvnw -v; exit 1; fi",
       "options": {
         "cwd": "${workspaceFolder}/backend"
       },
@@ -107,7 +107,7 @@
     {
       "label": "BE Unit",
       "type": "shell",
-      "command": "export JAVA_HOME=\"$(dirname \"$(dirname \"$(readlink -f \"$(command -v java)\")\")\")\"; if ./mvnw -v | grep -Eq 'Java version: (17|18|19|2[0-9])'; then ./mvnw test; else echo 'ERROR: Maven is not using Java 17+ (recommended: 21).'; ./mvnw -v; exit 1; fi",
+      "command": "JAVA_HOME_RAW=\"$(java -XshowSettings:properties -version 2>&1 | sed -n 's/^[[:space:]]*java.home = //p' | tail -n1)\"; export JAVA_HOME=\"$(cygpath -u \"$JAVA_HOME_RAW\")\"; export PATH=\"$JAVA_HOME/bin:$PATH\"; if ./mvnw -v | grep -Eq 'Java version: (17|18|19|2[0-9])'; then ./mvnw test; else echo 'ERROR: Maven is not using Java 17+ (recommended: 21).'; echo \"JAVA_HOME=$JAVA_HOME\"; ./mvnw -v; exit 1; fi",
       "options": {
         "cwd": "${workspaceFolder}/backend"
       },
