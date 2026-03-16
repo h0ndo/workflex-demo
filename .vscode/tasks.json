@@ -65,7 +65,7 @@
     {
       "label": "Backend",
       "type": "shell",
-      "command": ".\\mvnw spring-boot:run",
+      "command": "./mvnw spring-boot:run",
       "options": {
         "cwd": "${workspaceFolder}/backend"
       },
@@ -107,7 +107,7 @@
     {
       "label": "BE Unit",
       "type": "shell",
-      "command": ".\\mvnw test",
+      "command": "./mvnw test",
       "options": {
         "cwd": "${workspaceFolder}/backend"
       },
