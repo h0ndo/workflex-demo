@@ -52,7 +52,7 @@ jobs:
       - name: Wait for Postgres readiness
         run: |
           for i in {1..90}; do
-            if docker compose exec -T postgres pg_isready -U workflex_user -d workflex_db; then
+            if pg_isready -h localhost -p 5433 -U workflex_user -d workflex_db; then
               echo "Postgres is up"
               exit 0
             fi
@@ -64,6 +64,10 @@ jobs:
 
       - name: Start backend
         working-directory: backend
+        env:
+          DB_URL: jdbc:postgresql://localhost:5433/workflex_db
+          DB_USER: workflex_user
+          DB_PASSWORD: workflex_secret
         run: ./mvnw spring-boot:run > ../backend.log 2>&1 &
 
       - name: Wait for backend readiness
