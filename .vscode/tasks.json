@@ -65,7 +65,7 @@
     {
       "label": "Backend",
       "type": "shell",
-      "command": "if java -version 2>&1 | grep -Eq 'version \"(1[7-9]|[2-9][0-9])|openjdk (1[7-9]|[2-9][0-9])'; then ./mvnw spring-boot:run; else echo 'ERROR: Java 17+ is required. Please set JAVA_HOME to JDK 21 and restart VS Code.'; java -version; exit 1; fi"
+      "command": "export JAVA_HOME=\"$(dirname \"$(dirname \"$(readlink -f \"$(command -v java)\")\")\")\"; if ./mvnw -v | grep -Eq 'Java version: (17|18|19|2[0-9])'; then ./mvnw spring-boot:run; else echo 'ERROR: Maven is not using Java 17+ (recommended: 21).'; ./mvnw -v; exit 1; fi",
       "options": {
         "cwd": "${workspaceFolder}/backend"
       },
@@ -107,7 +107,7 @@
     {
       "label": "BE Unit",
       "type": "shell",
-      "command": "if java -version 2>&1 | grep -Eq 'version \"(1[7-9]|[2-9][0-9])|openjdk (1[7-9]|[2-9][0-9])'; then ./mvnw test; else echo 'ERROR: Java 17+ is required. Please set JAVA_HOME to JDK 21 and restart VS Code.'; java -version; exit 1; fi"
+      "command": "export JAVA_HOME=\"$(dirname \"$(dirname \"$(readlink -f \"$(command -v java)\")\")\")\"; if ./mvnw -v | grep -Eq 'Java version: (17|18|19|2[0-9])'; then ./mvnw test; else echo 'ERROR: Maven is not using Java 17+ (recommended: 21).'; ./mvnw -v; exit 1; fi",
       "options": {
         "cwd": "${workspaceFolder}/backend"
       },
