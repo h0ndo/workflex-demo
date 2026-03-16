@@ -1,0 +1,13 @@
+{
+  "cSpell.language": "de-DE,en",
+  "cSpell.enabledLanguageIds": [
+    "markdown",
+    "plaintext",
+    "typescript",
+    "typescriptreact",
+    "javascript",
+    "json"
+  ],
+  "cSpell.allowCompoundWords": true,
+  "cSpell.configFile": "${workspaceFolder}/cspell.json"
+}

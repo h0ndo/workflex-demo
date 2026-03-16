@@ -1,0 +1,42 @@
+{
+  "version": "0.2",
+  "language": "de-DE,en",
+  "dictionaries": [
+    "de-de",
+    "en_us",
+    "softwareTerms",
+    "companies",
+    "typescript",
+    "node"
+  ],
+  "words": [
+    "klären",
+    "Arbeitsweise",
+    "Workflex",
+    "DoD",
+    "OpenAPI",
+    "Frontend",
+    "Backend",
+    "Requirements",
+    "Engineering",
+    "Story",
+    "Stories",
+    "Tasks",
+    "Akzeptanzkriterien"
+  ],
+  "ignorePaths": [
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/target/**"
+  ],
+  "languageSettings": [
+    {
+      "languageId": "markdown",
+      "language": "de-DE,en"
+    },
+    {
+      "languageId": "plaintext",
+      "language": "de-DE,en"
+    }
+  ]
+}
