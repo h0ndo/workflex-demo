@@ -1,6 +1,7 @@
 # Project Structure Rules
 
 ## Required Structure
+
 - `agents/`
 - `rules/`
 - `doku/`
@@ -12,6 +13,7 @@
 - `.github/workflows/`
 
 ## Language Policy
+
 - Chat language can be German.
 - Everything written into the repository must be English.
 - Prompt-history entries must be written in English.
