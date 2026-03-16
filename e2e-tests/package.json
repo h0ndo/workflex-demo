@@ -3,10 +3,10 @@
   "private": true,
   "version": "0.0.1",
   "scripts": {
-    "test": "playwright test",
-    "test:headed": "playwright test --headed",
-    "test:ui": "playwright test --ui",
-    "install:browsers": "playwright install --with-deps chromium"
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed",
+    "test:ui": "npx playwright test --ui",
+    "install:browsers": "npx playwright install --with-deps chromium"
   },
   "devDependencies": {
     "@playwright/test": "^1.55.0",

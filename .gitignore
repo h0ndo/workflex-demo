@@ -1,0 +1,14 @@
+# Node
+node_modules/
+**/node_modules/
+
+# Build outputs
+frontend/dist/
+backend/target/
+
+# Playwright artifacts
+e2e-tests/playwright-report/
+e2e-tests/test-results/
+
+# Logs
+*.log
