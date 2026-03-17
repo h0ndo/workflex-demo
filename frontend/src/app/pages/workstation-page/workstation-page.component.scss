@@ -58,7 +58,7 @@ th button {
 }
 
 .col-employee {
-  width: 18%;
+  width: calc(18% - 20px);
 }
 
 .col-origin,
@@ -76,7 +76,7 @@ th button {
 }
 
 .col-risk {
-  width: 17%;
+  width: calc(17% - 10px);
 }
 
 .cell-employee,
@@ -87,6 +87,10 @@ th button {
 
 .cell-secondary {
   color: #5f6f86;
+}
+
+.cell-office-days {
+  text-align: center;
 }
 
 tbody tr:hover {
