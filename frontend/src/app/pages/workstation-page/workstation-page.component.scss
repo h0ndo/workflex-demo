@@ -61,7 +61,10 @@ th button {
   width: calc(18% - 35px);
 }
 
-.col-origin,
+.col-origin {
+  width: calc(17% - 10px);
+}
+
 .col-destination {
   width: 17%;
 }
@@ -76,7 +79,7 @@ th button {
 }
 
 .col-risk {
-  width: calc(17% - 10px);
+  width: 17%;
 }
 
 .cell-employee,
