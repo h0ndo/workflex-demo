@@ -5,6 +5,7 @@ import com.workflex.backend.workstation.service.WorkstationService;
 import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -18,7 +19,7 @@ public class WorkstationController {
     }
 
     @GetMapping
-    public List<WorkstationResponse> getWorkstations() {
-        return workstationService.getWorkstations();
+    public List<WorkstationResponse> getWorkstations(@RequestParam(defaultValue = "employee,asc") String sort) {
+        return workstationService.getWorkstations(sort);
     }
 }

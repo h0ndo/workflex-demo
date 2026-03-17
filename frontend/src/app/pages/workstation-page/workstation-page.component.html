@@ -14,7 +14,7 @@
       </tr>
     </thead>
     <tbody>
-      @for (row of rows; track row.workstationId) {
+      @for (row of rows(); track row.workstationId) {
         <tr>
           <td>{{ row.employee }}</td>
           <td>{{ row.originCountry }}</td>

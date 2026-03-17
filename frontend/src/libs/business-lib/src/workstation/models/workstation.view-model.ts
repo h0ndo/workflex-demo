@@ -1,3 +1,12 @@
+export type WorkstationSortKey =
+  | 'employee'
+  | 'originCountry'
+  | 'destinationCountry'
+  | 'startDate'
+  | 'endDate'
+  | 'officeDays'
+  | 'risk';
+
 export interface WorkstationViewModel {
   workstationId: string;
   employee: string;

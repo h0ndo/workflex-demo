@@ -1,11 +1,10 @@
 import { DatePipe, NgClass } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { BehaviorSubject, switchMap } from 'rxjs';
 
-import { WorkstationViewModel } from '@business-lib/workstation/models/workstation.view-model';
+import { WorkstationSortKey, WorkstationViewModel } from '@business-lib/workstation/models/workstation.view-model';
 import { WorkstationDataService } from '@business-lib/workstation/services/workstation-data.service';
-
-type SortKey = keyof Pick<WorkstationViewModel, 'employee' | 'originCountry' | 'destinationCountry' | 'startDate' | 'endDate' | 'officeDays' | 'risk'>;
 
 @Component({
   selector: 'app-workstation-page',
@@ -16,30 +15,31 @@ type SortKey = keyof Pick<WorkstationViewModel, 'employee' | 'originCountry' | '
 })
 export class WorkstationPageComponent {
   private readonly dataService = inject(WorkstationDataService);
-  private readonly data = toSignal(this.dataService.getAll$(), { initialValue: [] as WorkstationViewModel[] });
+  private readonly sortState$ = new BehaviorSubject<{ key: WorkstationSortKey; direction: 'asc' | 'desc' }>({
+    key: 'employee',
+    direction: 'asc',
+  });
 
-  sortKey: SortKey = 'employee';
+  readonly rows = toSignal(
+    this.sortState$.pipe(switchMap((sort) => this.dataService.getAll$(sort.key, sort.direction))),
+    { initialValue: [] as WorkstationViewModel[] },
+  );
+
+  sortKey: WorkstationSortKey = 'employee';
   ascending = true;
 
-  get rows(): WorkstationViewModel[] {
-    const key = this.sortKey;
-    const sorted = [...this.data()].sort((a, b) => {
-      const av = a[key];
-      const bv = b[key];
-      if (av instanceof Date && bv instanceof Date) return av.getTime() - bv.getTime();
-      if (typeof av === 'number' && typeof bv === 'number') return av - bv;
-      return String(av).localeCompare(String(bv));
-    });
-    return this.ascending ? sorted : sorted.reverse();
-  }
-
-  sortBy(key: SortKey): void {
+  sortBy(key: WorkstationSortKey): void {
     if (this.sortKey === key) {
       this.ascending = !this.ascending;
-      return;
+    } else {
+      this.sortKey = key;
+      this.ascending = true;
     }
-    this.sortKey = key;
-    this.ascending = true;
+
+    this.sortState$.next({
+      key: this.sortKey,
+      direction: this.ascending ? 'asc' : 'desc',
+    });
   }
 
   riskLabel(risk: WorkstationViewModel['risk']): string {

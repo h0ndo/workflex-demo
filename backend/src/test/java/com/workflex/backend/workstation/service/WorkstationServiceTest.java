@@ -1,6 +1,7 @@
 package com.workflex.backend.workstation.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 import com.workflex.backend.workstation.entity.Workstation;
@@ -13,6 +14,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.data.domain.Sort;
 
 @ExtendWith(MockitoExtension.class)
 class WorkstationServiceTest {
@@ -24,14 +26,14 @@ class WorkstationServiceTest {
     private WorkstationService workstationService;
 
     @Test
-    void shouldSortByEmployeeThenWorkstationId() {
+    void shouldReturnSortedByBackendSortParameter() {
         Workstation w1 = workstation("w2", "Steffen Jacobs", WorkstationRisk.HIGH);
         Workstation w2 = workstation("w1", "Steffen Jacobs", WorkstationRisk.HIGH);
         Workstation w3 = workstation("w4", "Andre Fischer", WorkstationRisk.LOW);
 
-        when(workstationRepository.findAll()).thenReturn(List.of(w1, w2, w3));
+        when(workstationRepository.findAll(any(Sort.class))).thenReturn(List.of(w3, w2, w1));
 
-        var result = workstationService.getWorkstations();
+        var result = workstationService.getWorkstations("employee,asc");
 
         assertEquals(3, result.size());
         assertEquals("Andre Fischer", result.get(0).employee());
