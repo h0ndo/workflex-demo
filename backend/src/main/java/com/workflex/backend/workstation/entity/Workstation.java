@@ -1,6 +1,6 @@
-package com.workflex.backend.entity;
+package com.workflex.backend.workstation.entity;
 
-import com.workflex.backend.enums.WorkstationRisk;
+import com.workflex.backend.workstation.enums.WorkstationRisk;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

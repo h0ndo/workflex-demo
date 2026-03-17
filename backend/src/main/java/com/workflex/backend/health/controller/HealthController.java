@@ -1,6 +1,6 @@
-package com.workflex.backend.controller;
+package com.workflex.backend.health.controller;
 
-import com.workflex.backend.dto.response.DbHealthResponse;
+import com.workflex.backend.health.dto.response.DbHealthResponse;
 import java.sql.Connection;
 import javax.sql.DataSource;
 import org.flywaydb.core.Flyway;

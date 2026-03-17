@@ -1,4 +1,4 @@
-package com.workflex.backend.dto.response;
+package com.workflex.backend.health.dto.response;
 
 public record DbHealthResponse(
         boolean up,
