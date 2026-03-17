@@ -1,7 +1,7 @@
-package com.workflex.backend.workstation.dto;
+package com.workflex.backend.dto.response;
 
-import com.workflex.backend.workstation.entity.Workstation;
-import com.workflex.backend.workstation.entity.WorkstationRisk;
+import com.workflex.backend.entity.Workstation;
+import com.workflex.backend.enums.WorkstationRisk;
 import java.time.LocalDate;
 
 public record WorkstationResponse(

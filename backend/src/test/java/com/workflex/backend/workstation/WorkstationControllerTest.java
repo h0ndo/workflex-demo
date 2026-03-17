@@ -2,7 +2,7 @@ package com.workflex.backend.workstation;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.workflex.backend.workstation.entity.WorkstationRisk;
+import com.workflex.backend.enums.WorkstationRisk;
 import org.junit.jupiter.api.Test;
 
 class WorkstationControllerTest {

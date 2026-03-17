@@ -1,7 +1,7 @@
-package com.workflex.backend.workstation.controller;
+package com.workflex.backend.controller;
 
-import com.workflex.backend.workstation.dto.WorkstationResponse;
-import com.workflex.backend.workstation.service.WorkstationService;
+import com.workflex.backend.dto.response.WorkstationResponse;
+import com.workflex.backend.service.WorkstationService;
 import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

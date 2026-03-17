@@ -1,8 +1,8 @@
-package com.workflex.backend.workstation.bootstrap;
+package com.workflex.backend.bootstrap;
 
-import com.workflex.backend.workstation.entity.Workstation;
-import com.workflex.backend.workstation.entity.WorkstationRisk;
-import com.workflex.backend.workstation.repository.WorkstationRepository;
+import com.workflex.backend.entity.Workstation;
+import com.workflex.backend.enums.WorkstationRisk;
+import com.workflex.backend.repository.WorkstationRepository;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

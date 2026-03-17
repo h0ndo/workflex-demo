@@ -1,4 +1,4 @@
-package com.workflex.backend.workstation.entity;
+package com.workflex.backend.enums;
 
 public enum WorkstationRisk {
     HIGH,
