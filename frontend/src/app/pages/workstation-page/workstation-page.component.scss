@@ -1,0 +1,52 @@
+.page {
+  padding: 24px;
+  font-family: Arial, sans-serif;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  background: #fff;
+}
+
+th,
+td {
+  border-bottom: 1px solid #e5e7eb;
+  padding: 12px;
+  text-align: left;
+}
+
+th button {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+tbody tr:hover {
+  background: #f4f8ff;
+}
+
+.risk {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.risk img {
+  width: 16px;
+  height: 16px;
+}
+
+.risk-high {
+  color: #b42318;
+}
+
+.risk-low {
+  color: #b54708;
+}
+
+.risk-no {
+  color: #027a48;
+}

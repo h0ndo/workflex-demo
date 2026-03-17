@@ -1,0 +1,35 @@
+<main class="page">
+  <h1>Workstations</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th><button type="button" (click)="sortBy('employee')">Employee</button></th>
+        <th><button type="button" (click)="sortBy('originCountry')">From</button></th>
+        <th><button type="button" (click)="sortBy('destinationCountry')">To</button></th>
+        <th><button type="button" (click)="sortBy('startDate')">Start date</button></th>
+        <th><button type="button" (click)="sortBy('endDate')">End date</button></th>
+        <th><button type="button" (click)="sortBy('officeDays')">Office days</button></th>
+        <th><button type="button" (click)="sortBy('risk')">Risk</button></th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (row of rows; track row.workstationId) {
+        <tr>
+          <td>{{ row.employee }}</td>
+          <td>{{ row.originCountry }}</td>
+          <td>{{ row.destinationCountry }}</td>
+          <td>{{ row.startDate | date: 'dd/MM/yyyy' }}</td>
+          <td>{{ row.endDate | date: 'dd/MM/yyyy' }}</td>
+          <td>{{ row.officeDays }}</td>
+          <td>
+            <span class="risk" [ngClass]="riskClass(row.risk)">
+              <img [src]="riskIcon(row.risk)" [alt]="riskLabel(row.risk)" />
+              {{ riskLabel(row.risk) }}
+            </span>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</main>
