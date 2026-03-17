@@ -8,6 +8,13 @@ test('shows workstation table data', async ({ page }) => {
   await expect(page.locator('tbody tr').first()).toContainText('Andre Fischer');
 });
 
+test('renders country flags and risk icon', async ({ page }) => {
+  await page.goto('/');
+
+  await expect(page.locator('tbody tr').first().locator('td').nth(1).locator('img.flag')).toBeVisible();
+  await expect(page.locator('tbody tr').first().locator('td').nth(6).locator('app-risk-cell img')).toBeVisible();
+});
+
 test('requests sorted data for every sortable column', async ({ page }) => {
   await page.goto('/');
 
@@ -15,9 +22,9 @@ test('requests sorted data for every sortable column', async ({ page }) => {
     { header: 'Employee', field: 'employee' },
     { header: 'Origin', field: 'originCountry' },
     { header: 'Destination', field: 'destinationCountry' },
-    { header: 'Start Date', field: 'startDate' },
-    { header: 'End Date', field: 'endDate' },
-    { header: 'Office Days', field: 'officeDays' },
+    { header: 'Start', field: 'startDate' },
+    { header: 'End', field: 'endDate' },
+    { header: 'Working days', field: 'officeDays' },
     { header: 'Risk', field: 'risk' },
   ];
 
@@ -35,12 +42,12 @@ test('toggles sort direction for a column', async ({ page }) => {
   await page.goto('/');
 
   const firstRequestPromise = page.waitForRequest((request) => request.url().includes('/workflex/workstation'));
-  await page.getByRole('button', { name: 'Office Days' }).click();
+  await page.getByRole('button', { name: 'Working days' }).click();
   const firstRequest = await firstRequestPromise;
   expect(new URL(firstRequest.url()).searchParams.get('sort')).toBe('officeDays,asc');
 
   const secondRequestPromise = page.waitForRequest((request) => request.url().includes('/workflex/workstation'));
-  await page.getByRole('button', { name: 'Office Days' }).click();
+  await page.getByRole('button', { name: 'Working days' }).click();
   const secondRequest = await secondRequestPromise;
   expect(new URL(secondRequest.url()).searchParams.get('sort')).toBe('officeDays,desc');
 });
