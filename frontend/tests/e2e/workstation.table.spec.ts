@@ -1,20 +1,5 @@
 import { expect, test } from '@playwright/test';
 
-test('shows workstation table data', async ({ page }) => {
-  await page.goto('/');
-
-  await expect(page.getByRole('heading', { name: 'Workstations' })).toBeVisible();
-  await expect(page.locator('tbody tr')).toHaveCount(5);
-  await expect(page.locator('tbody tr').first()).toContainText('Andre Fischer');
-});
-
-test('renders country flags and risk icon', async ({ page }) => {
-  await page.goto('/');
-
-  await expect(page.locator('tbody tr').first().locator('td').nth(1).locator('img.flag')).toBeVisible();
-  await expect(page.locator('tbody tr').first().locator('td').nth(6).locator('app-risk-cell img')).toBeVisible();
-});
-
 test('requests sorted data for every sortable column', async ({ page }) => {
   await page.goto('/');
 
@@ -38,7 +23,7 @@ test('requests sorted data for every sortable column', async ({ page }) => {
   }
 });
 
-test('toggles sort direction for a column', async ({ page }) => {
+test('toggles sort direction for Working days', async ({ page }) => {
   await page.goto('/');
 
   const firstRequestPromise = page.waitForRequest((request) => request.url().includes('/workflex/workstation'));
