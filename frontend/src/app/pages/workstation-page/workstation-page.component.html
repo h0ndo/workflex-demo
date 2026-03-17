@@ -4,13 +4,41 @@
   <table>
     <thead>
       <tr>
-        <th><button type="button" (click)="sortBy('employee')">Employee</button></th>
-        <th><button type="button" (click)="sortBy('originCountry')">From</button></th>
-        <th><button type="button" (click)="sortBy('destinationCountry')">To</button></th>
-        <th><button type="button" (click)="sortBy('startDate')">Start date</button></th>
-        <th><button type="button" (click)="sortBy('endDate')">End date</button></th>
-        <th><button type="button" (click)="sortBy('officeDays')">Office days</button></th>
-        <th><button type="button" (click)="sortBy('risk')">Risk</button></th>
+        <th>
+          <button type="button" (click)="sortBy('employee')">
+            <span>Employee</span><span class="sort-arrows">▲▼</span>
+          </button>
+        </th>
+        <th>
+          <button type="button" (click)="sortBy('originCountry')">
+            <span>From</span><span class="sort-arrows">▲▼</span>
+          </button>
+        </th>
+        <th>
+          <button type="button" (click)="sortBy('destinationCountry')">
+            <span>To</span><span class="sort-arrows">▲▼</span>
+          </button>
+        </th>
+        <th>
+          <button type="button" (click)="sortBy('startDate')">
+            <span>Start date</span><span class="sort-arrows">▲▼</span>
+          </button>
+        </th>
+        <th>
+          <button type="button" (click)="sortBy('endDate')">
+            <span>End date</span><span class="sort-arrows">▲▼</span>
+          </button>
+        </th>
+        <th>
+          <button type="button" (click)="sortBy('officeDays')">
+            <span>Office days</span><span class="sort-arrows">▲▼</span>
+          </button>
+        </th>
+        <th>
+          <button type="button" (click)="sortBy('risk')">
+            <span>Risk</span><span class="sort-arrows">▲▼</span>
+          </button>
+        </th>
       </tr>
     </thead>
     <tbody>
