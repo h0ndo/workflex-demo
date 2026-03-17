@@ -1,5 +1,8 @@
-package com.workflex.backend.workstation;
+package com.workflex.backend.workstation.service;
 
+import com.workflex.backend.workstation.dto.WorkstationResponse;
+import com.workflex.backend.workstation.entity.Workstation;
+import com.workflex.backend.workstation.repository.WorkstationRepository;
 import java.util.Comparator;
 import java.util.List;
 import org.springframework.stereotype.Service;

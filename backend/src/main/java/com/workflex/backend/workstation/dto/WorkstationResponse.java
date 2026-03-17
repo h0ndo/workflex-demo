@@ -1,5 +1,7 @@
-package com.workflex.backend.workstation;
+package com.workflex.backend.workstation.dto;
 
+import com.workflex.backend.workstation.entity.Workstation;
+import com.workflex.backend.workstation.entity.WorkstationRisk;
 import java.time.LocalDate;
 
 public record WorkstationResponse(

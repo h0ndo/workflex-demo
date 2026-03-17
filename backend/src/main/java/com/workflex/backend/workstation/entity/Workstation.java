@@ -1,4 +1,4 @@
-package com.workflex.backend.workstation;
+package com.workflex.backend.workstation.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
