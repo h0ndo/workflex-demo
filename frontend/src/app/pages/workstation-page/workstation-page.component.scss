@@ -52,6 +52,34 @@ th button {
   margin-top: 3px;
 }
 
+.col-employee {
+  width: 18%;
+}
+
+.col-origin,
+.col-destination {
+  width: 17%;
+}
+
+.col-start,
+.col-end {
+  width: 11%;
+}
+
+.col-office {
+  width: 9%;
+}
+
+.col-risk {
+  width: 17%;
+}
+
+.cell-employee,
+.cell-date {
+  word-break: break-all;
+  overflow-wrap: anywhere;
+}
+
 tbody tr:hover {
   background: #f4f8ff;
 }

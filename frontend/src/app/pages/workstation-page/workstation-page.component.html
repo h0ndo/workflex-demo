@@ -2,6 +2,15 @@
   <h1>Workstations</h1>
 
   <table>
+    <colgroup>
+      <col class="col-employee" />
+      <col class="col-origin" />
+      <col class="col-destination" />
+      <col class="col-start" />
+      <col class="col-end" />
+      <col class="col-office" />
+      <col class="col-risk" />
+    </colgroup>
     <thead>
       <tr>
         <th>
@@ -51,11 +60,11 @@
     <tbody>
       @for (row of rows(); track row.workstationId) {
         <tr>
-          <td>{{ row.employee }}</td>
+          <td class="cell-employee">{{ row.employee }}</td>
           <td><app-country-cell [country]="row.originCountry" /></td>
           <td><app-country-cell [country]="row.destinationCountry" /></td>
-          <td><app-date-cell [date]="row.startDate" /></td>
-          <td><app-date-cell [date]="row.endDate" /></td>
+          <td class="cell-date"><app-date-cell [date]="row.startDate" /></td>
+          <td class="cell-date"><app-date-cell [date]="row.endDate" /></td>
           <td>{{ row.officeDays }}</td>
           <td><app-risk-cell [risk]="row.risk" /></td>
         </tr>
