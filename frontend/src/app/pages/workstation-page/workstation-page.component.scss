@@ -54,7 +54,7 @@ th button {
 }
 
 .sort-arrows span + span {
-  margin-top: 3px;
+  margin-top: 6px;
 }
 
 .col-employee {
@@ -69,7 +69,10 @@ th button {
   width: 17%;
 }
 
-.col-start,
+.col-start {
+  width: calc(11% - 10px);
+}
+
 .col-end {
   width: calc(11% - 5px);
 }
