@@ -61,12 +61,12 @@
       @for (row of rows(); track row.workstationId) {
         <tr>
           <td class="cell-employee">{{ row.employee }}</td>
-          <td><app-country-cell [country]="row.originCountry" /></td>
-          <td><app-country-cell [country]="row.destinationCountry" /></td>
-          <td class="cell-date"><app-date-cell [date]="row.startDate" /></td>
-          <td class="cell-date"><app-date-cell [date]="row.endDate" /></td>
-          <td>{{ row.officeDays }}</td>
-          <td><app-risk-cell [risk]="row.risk" /></td>
+          <td class="cell-secondary"><app-country-cell [country]="row.originCountry" /></td>
+          <td class="cell-secondary"><app-country-cell [country]="row.destinationCountry" /></td>
+          <td class="cell-date cell-secondary"><app-date-cell [date]="row.startDate" /></td>
+          <td class="cell-date cell-secondary"><app-date-cell [date]="row.endDate" /></td>
+          <td class="cell-secondary">{{ row.officeDays }}</td>
+          <td class="cell-secondary"><app-risk-cell [risk]="row.risk" /></td>
         </tr>
       }
     </tbody>
