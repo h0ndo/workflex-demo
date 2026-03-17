@@ -82,7 +82,11 @@ th button {
   width: 17%;
 }
 
-.cell-employee,
+.cell-employee {
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
 .cell-date {
   word-break: break-all;
   overflow-wrap: anywhere;
