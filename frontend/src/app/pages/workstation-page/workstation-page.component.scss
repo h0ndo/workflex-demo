@@ -24,15 +24,14 @@ td {
 }
 
 th button {
-  width: 100%;
   display: inline-flex;
   align-items: center;
-  justify-content: space-between;
   border: 0;
   background: transparent;
   cursor: pointer;
   font-weight: 700;
   color: #1f2937;
+  padding: 0;
 }
 
 .sort-arrows {
@@ -40,35 +39,16 @@ th button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-left: 5px;
   color: #9ca3af;
   font-size: 9px;
   line-height: 8px;
 }
 
+.sort-arrows span + span {
+  margin-top: 3px;
+}
+
 tbody tr:hover {
   background: #f4f8ff;
-}
-
-.risk {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 600;
-}
-
-.risk img {
-  width: 16px;
-  height: 16px;
-}
-
-.risk-high {
-  color: #b42318;
-}
-
-.risk-low {
-  color: #b54708;
-}
-
-.risk-no {
-  color: #027a48;
 }

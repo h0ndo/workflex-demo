@@ -6,37 +6,44 @@
       <tr>
         <th>
           <button type="button" (click)="sortBy('employee')">
-            <span>Employee</span><span class="sort-arrows"><span>▲</span><span>▼</span></span>
+            <span>Employee</span>
+            <span class="sort-arrows"><span>▲</span><span>▼</span></span>
           </button>
         </th>
         <th>
           <button type="button" (click)="sortBy('originCountry')">
-            <span>From</span><span class="sort-arrows"><span>▲</span><span>▼</span></span>
+            <span>Origin</span>
+            <span class="sort-arrows"><span>▲</span><span>▼</span></span>
           </button>
         </th>
         <th>
           <button type="button" (click)="sortBy('destinationCountry')">
-            <span>To</span><span class="sort-arrows"><span>▲</span><span>▼</span></span>
+            <span>Destination</span>
+            <span class="sort-arrows"><span>▲</span><span>▼</span></span>
           </button>
         </th>
         <th>
           <button type="button" (click)="sortBy('startDate')">
-            <span>Start date</span><span class="sort-arrows"><span>▲</span><span>▼</span></span>
+            <span>Start Date</span>
+            <span class="sort-arrows"><span>▲</span><span>▼</span></span>
           </button>
         </th>
         <th>
           <button type="button" (click)="sortBy('endDate')">
-            <span>End date</span><span class="sort-arrows"><span>▲</span><span>▼</span></span>
+            <span>End Date</span>
+            <span class="sort-arrows"><span>▲</span><span>▼</span></span>
           </button>
         </th>
         <th>
           <button type="button" (click)="sortBy('officeDays')">
-            <span>Office days</span><span class="sort-arrows"><span>▲</span><span>▼</span></span>
+            <span>Office Days</span>
+            <span class="sort-arrows"><span>▲</span><span>▼</span></span>
           </button>
         </th>
         <th>
           <button type="button" (click)="sortBy('risk')">
-            <span>Risk</span><span class="sort-arrows"><span>▲</span><span>▼</span></span>
+            <span>Risk</span>
+            <span class="sort-arrows"><span>▲</span><span>▼</span></span>
           </button>
         </th>
       </tr>
@@ -45,17 +52,12 @@
       @for (row of rows(); track row.workstationId) {
         <tr>
           <td>{{ row.employee }}</td>
-          <td>{{ row.originCountry }}</td>
-          <td>{{ row.destinationCountry }}</td>
-          <td>{{ row.startDate | date: 'dd/MM/yyyy' }}</td>
-          <td>{{ row.endDate | date: 'dd/MM/yyyy' }}</td>
+          <td><app-country-cell [country]="row.originCountry" /></td>
+          <td><app-country-cell [country]="row.destinationCountry" /></td>
+          <td><app-date-cell [date]="row.startDate" /></td>
+          <td><app-date-cell [date]="row.endDate" /></td>
           <td>{{ row.officeDays }}</td>
-          <td>
-            <span class="risk" [ngClass]="riskClass(row.risk)">
-              <img [src]="riskIcon(row.risk)" [alt]="riskLabel(row.risk)" />
-              {{ riskLabel(row.risk) }}
-            </span>
-          </td>
+          <td><app-risk-cell [risk]="row.risk" /></td>
         </tr>
       }
     </tbody>
