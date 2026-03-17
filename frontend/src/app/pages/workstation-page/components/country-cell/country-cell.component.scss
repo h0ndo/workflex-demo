@@ -5,6 +5,9 @@
 }
 
 .flag {
-  font-size: 16px;
-  line-height: 1;
+  width: 20px;
+  height: 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 2px;
+  object-fit: cover;
 }

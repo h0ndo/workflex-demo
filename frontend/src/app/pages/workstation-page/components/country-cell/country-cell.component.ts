@@ -12,30 +12,17 @@ export class CountryCellComponent {
   @Input({ required: true }) country!: string;
 
   private readonly countryCodes: Record<string, string> = {
-    Germany: 'DE',
-    'United States': 'US',
-    Ukraine: 'UA',
-    Belgium: 'BE',
-    Spain: 'ES',
-    Greece: 'GR',
-    India: 'IN',
+    Germany: 'de',
+    'United States': 'us',
+    Ukraine: 'ua',
+    Belgium: 'be',
+    Spain: 'es',
+    Greece: 'gr',
+    India: 'in',
   };
 
-  get flagEmoji(): string {
-    const code = this.countryCodes[this.country] ?? 'UN';
-    return this.toFlagEmoji(code);
-  }
-
-  private toFlagEmoji(countryCode: string): string {
-    const normalized = countryCode.toUpperCase();
-    const first = normalized.codePointAt(0);
-    const second = normalized.codePointAt(1);
-
-    if (first === undefined || second === undefined) {
-      return '🏳️';
-    }
-
-    const base = 127397;
-    return String.fromCodePoint(first + base, second + base);
+  get flagUrl(): string {
+    const code = this.countryCodes[this.country] ?? 'un';
+    return `https://flagcdn.com/${code}.svg`;
   }
 }
